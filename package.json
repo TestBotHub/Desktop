@@ -8,10 +8,9 @@
   },
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "electron": "^1.4.13"
-  },
   "dependencies": {
+    "electron": "^1.4.15",
+    "electron-packager": "^8.5.1",
     "ipc": "0.0.1",
     "jquery": "^3.1.1",
     "socket.io": "^1.7.2"
