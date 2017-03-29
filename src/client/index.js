@@ -2,8 +2,12 @@ const {app, BrowserWindow} = require('electron');
 const ipcMain = require('electron').ipcMain;
 const path = require('path');
 const url = require('url');
+const { spawn } = require('child_process');
+const fs = require('fs');
+const socket = require('socket.io-client')('https://safe-castle-29687.herokuapp.com');
 app.setPath('exe', '/home/mech-user/work/nekonote');
 let mainWindow = null;
+const processManager = require('./projectManager.js');
 app.on('window-all-closed', function() {
   app.quit();
 });
@@ -13,6 +17,8 @@ app.on('ready', function() {
     width: 1000,
     height: 600
   });
+  processManager.listen(socket);
+  processManager.clone("test", "url");
   mainWindow.loadURL('file://' + __dirname + '/render/index.html');
   mainWindow.on('closed', function() {
     mainWindow = null;
