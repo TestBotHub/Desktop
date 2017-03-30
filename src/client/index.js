@@ -18,7 +18,7 @@ app.on('ready', function() {
     height: 600
   });
   processManager.listen(socket);
-  processManager.clone("test", "url");
+  // processManager.clone("SimpleTest", "https://github.com/testBotHub/SimpleTest");
   mainWindow.loadURL('file://' + __dirname + '/render/index.html');
   mainWindow.on('closed', function() {
     mainWindow = null;
